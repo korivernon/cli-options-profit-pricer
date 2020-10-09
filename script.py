@@ -74,6 +74,7 @@ def calc_call_price():
         sale_price = max_contracts*exit_amt*CONTRACTS
     profit = sale_price-buy_in
     print()
+    make_blue("==========QUICKSTATS=========")
     buy_in_str = "Your risk amount will be: "+ str(buy_in)
     make_yelo(buy_in_str)
     sale_price_str = "Your exit price will be: " + str(exit_amt)
@@ -81,13 +82,14 @@ def calc_call_price():
     print("Your sale price will be:", sale_price, "dollars.")
     profit_str = "Your total profit will be: "+ str(profit)+ " dollars." 
     make_purp(profit_str)
+    make_red("==========ENDQUICKSTATS==========")
 
     call_spec = Option(tkr, max_contracts, buy_in, sale_price, profit)
     return call_spec
 
 def take_input():
     make_white("==============================")
-    inp = input("What would would you like to select? ")
+    inp = input("\033[1;37;40mWhat would would you like to select? \033[0m")
     return inp
 
 def call_calc():
@@ -104,7 +106,6 @@ def call_calc():
 
     print()
     make_red("==========Exiting Interface==========")
-    print()
     make_yelo("Here are your speculative calls: ")
     print()
     for i in range(len(ls)):

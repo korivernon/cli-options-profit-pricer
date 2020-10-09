@@ -36,4 +36,4 @@ You can calculate how you want to gain from the position you intend on getting i
 
 The `QUICKSTATS` portion combines all of these into an area you can quickly take a glance at.
 
-<img src="img/exit.png width="50%" />
+<img src="img/exit.png" width="50%" />

@@ -10,6 +10,8 @@ All you have to do is run the python file in your command line and enter in the 
 
 The first thing you want to do is run the python file using `python3 script.py` in your terminal, or set a shortcut using a key word. If you want to exit, use `ctrl/cmd+z`.
 
+<img src="img/quick_script.png" width="50%" />
+
 ### Entering in an Entry
 
 First start by entering a Ticker name. This is just for tracking in the future if you want to enter multiple strategies and choose the best one.

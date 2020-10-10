@@ -28,25 +28,32 @@ def make_white(st):
 
 # Option(max_contracts, buy_in, sale_price, profit)
 class Option:
-    def __init__(self, tkr, max_cont, buy_in, sale_price, profit):
+    def __init__(self, tkr, max_cont, buy_in, sale_price, profit, typ):
         self.buy = buy_in
         self.tkr = tkr
         self.sale = sale_price
         self.profit = profit
         self.max = max_cont
+        self.typ = typ
     def __repr__(self):
         ret = str(self.tkr)+" Option with buy in price of "+ str(self.sale)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
         return ret
     def __str__(self):
-        ret = str(self.tkr)+" Option with buy in price of "+ str(self.sale)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
+        ret = str(self.tkr)+ " " +str(self.typ) + " Option with buy in price of "+ str(self.sale)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
         return ret
 def print_menu():
     make_white("==============Menu================")
     make_white("*press ENTER/return key to exit*")
     print()
     make_white("1) Call Price Speculator")
+    make_white("2) Put Price Speculator")
 
-def calc_call_price():
+def naked_call_put_price_calc(code):
+
+    if code == "1":
+        typ = "Put"
+    elif code == "2":
+        typ = "Put"
     print("==============================")
     tkr = input("\033[1;36;40mTicker Name: \033[0m")
     risk_amt = float(input("\033[1;36;40mHow much do you want to put at risk: \033[0m"))
@@ -58,13 +65,13 @@ def calc_call_price():
     buy_in = max_contracts * buy_price * CONTRACTS
 
     perc_or_money = input("\033[1;36;40mHow do you want to calculate your sale price (p/m): \033[0m")
-    
+
 
     while ((perc_or_money != 'p' and perc_or_money == 'm') and (perc_or_money == 'p' and perc_or_money != 'm')):
         perc_or_money = input("\033[1;36;40mHow do you want to calculate your sale price (p/m): \033[0m")
     exit_amt = 0
     if perc_or_money == 'p':
-       
+
         perc = float(input("\033[1;31;40mIdealized Percentage Profit: \033[0m"))
         exit_amt = buy_price*(1+(perc/100))
         sale_price = max_contracts * exit_amt * CONTRACTS
@@ -80,11 +87,11 @@ def calc_call_price():
     sale_price_str = "Your exit price will be: " + str(exit_amt)
     make_red(sale_price_str)
     print("Your sale price will be:", sale_price, "dollars.")
-    profit_str = "Your total profit will be: "+ str(profit)+ " dollars." 
+    profit_str = "Your total profit will be: "+ str(profit)+ " dollars."
     make_purp(profit_str)
     make_red("==========ENDQUICKSTATS==========")
 
-    call_spec = Option(tkr, max_contracts, buy_in, sale_price, profit)
+    call_spec = Option(tkr, max_contracts, buy_in, sale_price, profit, typ)
     return call_spec
 
 def take_input():
@@ -98,8 +105,8 @@ def call_calc():
     inp = take_input()
     ls = []
     while inp != '':
-        if inp == "1":
-            item = calc_call_price()
+        if inp == "1" or inp == "2":
+            item = naked_call_put_price_calc()
         ls.append(item)
         print_menu()
         inp = take_input()

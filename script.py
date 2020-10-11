@@ -51,7 +51,7 @@ def print_menu():
 def naked_call_put_price_calc(code):
 
     if code == "1":
-        typ = "Put"
+        typ = "Call"
     elif code == "2":
         typ = "Put"
     print("==============================")
@@ -106,7 +106,7 @@ def call_calc():
     ls = []
     while inp != '':
         if inp == "1" or inp == "2":
-            item = naked_call_put_price_calc()
+            item = naked_call_put_price_calc(inp)
         ls.append(item)
         print_menu()
         inp = take_input()

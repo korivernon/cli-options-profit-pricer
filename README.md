@@ -1,6 +1,6 @@
 # Welcome to The Command Line Options Profit Calculator
 
-## Quick Profit Calculator for Long Calls
+## Quick Profit Calculator for Calls and Puts
 
 This is a profit calculator that I created to help me predict my exit with Call option Positions. This can also be used for Puts, but I primarily do Long Calls.
 
@@ -39,3 +39,10 @@ You can calculate how you want to gain from the position you intend on getting i
 The `QUICKSTATS` portion combines all of these into an area you can quickly take a glance at.
 
 <img src="img/exit.png" width="50%" />
+
+
+## Upcoming Functionality
+
+Black Scholes Price calculator where you can put in more exact data. Calling `yfinance` library to get the greeks and calculate the exact price with respect to time of a position to predict what is the optimal price to enter into a trade.
+
+Once barebones is finished in Python, create a web app where users can create an account and keep a log of trades. Thre they can indicate what worked out for them, and a journaling feature can be made. 

@@ -39,7 +39,7 @@ class Option:
         ret = str(self.tkr)+" Option with buy in price of "+ str(self.sale)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
         return ret
     def __str__(self):
-        ret = str(self.tkr)+ " " +str(self.typ) + " Option with buy in price of "+ str(self.sale)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
+        ret = str(self.tkr)+ " " + self.cont + " " +str(self.typ) + " Option with buy in price of "+ str(self.buy_in)+" dollars, sale price of "+str(self.sale)+" dollars and profit of "+ str(self.profit)+" dollars."
         return ret
 def print_menu():
     make_white("==============Menu================")
